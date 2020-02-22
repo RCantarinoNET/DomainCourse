@@ -7,11 +7,15 @@ namespace Domain.Course.Tests
 {
     public class SubsidiariaTest
     {
-        [Fact]
-        public void AO_TENTAR_CRIAR_SUB_SEMNOME_ERRO()
+       
+        
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void AO_TENTAR_CRIAR_SUB_SEMNOME_ERRO(string nome)
         {
             var validator = new SubsidiariaValidators();
-            var result = validator.Validate(new Subsidiaria());
+            var result = validator.Validate(new Subsidiaria(nome));
             Assert.False(result.IsValid);
         }
     }

@@ -2,10 +2,11 @@
 {
     public class Subsidiaria : Base.EntityBase
     {
-        public Subsidiaria()
+        public Subsidiaria(string nome)
         {
+            this.Name = nome;
         }
 
-        public string Name { get; set; }
+        public string Name { get; private  set; }
     }
 }
